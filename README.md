@@ -33,3 +33,8 @@ kedro run --pipeline ds
 ## Notebook Usage
 - A Jupyter Notebook was used for initial EDA, scratchwork
 - This is provided in the Notebooks directory
+
+## Example Output
+See below for an example image output of a simplified heuristic for mushroom poison test (~99% accurate for 23 varieties)
+
+[tree image](./example_outputs/tree_image.png "Tree Classifier Overview")

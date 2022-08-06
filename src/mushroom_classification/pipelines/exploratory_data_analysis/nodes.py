@@ -16,23 +16,6 @@ import matplotlib.pyplot as plt
 import xgboost as xgb
 import numpy as np
 
-# Custom Heatmap Plot\r\n",
-# Source: https://towardsdatascience.com/better-heatmaps-and-correlation-matrix-plots-in-python-41445d0f2bec\r\n",
-def corr_plot(df):
-    corr = df.corr()
-    # Generate a mask for the upper triangle
-    mask = np.zeros_like(corr, dtype=bool)
-    mask[np.triu_indices_from(mask)] = True
-    # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(10, 10))
-    # Generate a custom diverging colormap
-    cmap = sns.diverging_palette(220, 11, as_cmap=True)
-    # Draw the heatmap with the mask and correct aspect ratio
-    sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0,
-    square=True, linewidths=.5, cbar_kws={"shrink": .5})
-
-
-
 def pca_analysis(df:pd.DataFrame, parameters: Dict):
     """Calculates and logs the coefficient of determination.
 
@@ -40,12 +23,16 @@ def pca_analysis(df:pd.DataFrame, parameters: Dict):
         df: dataframe of normalized data
         parameters: clarification of number of PCA components and file locations
     """
+    plt.close('all')
+
     pca = PCA(n_components=parameters['n_components'])
     pca_df = pd.DataFrame(data = pca.fit_transform(df), columns = ['PC2_1', 'PC2_2'])
     combined_df = pd.concat([df['edible'], pca_df], axis=1, join='inner')
     scatter_plot = sns.scatterplot(x='PC2_1', y='PC2_2',hue='edible', data=combined_df)
     image_name = parameters['image_name']
-    plt.savefig('./data/08_reporting/'+image_name)
+    plt.savefig('./data/08_reporting/'+image_name, pad_inches=0.3)
+    scatter_plot.clear()
+    plt.close('all')
     return None
 
 def corr_heat_map(df:pd.DataFrame, parameters: Dict):
@@ -55,14 +42,16 @@ def corr_heat_map(df:pd.DataFrame, parameters: Dict):
         df: dataframe of normalized data
         parameters: file locations
     """
-    # Custom Heatmap Plot\r\n",
+    # Custom Heatmap Plot",
     # Source: https://towardsdatascience.com/better-heatmaps-and-correlation-matrix-plots-in-python-41445d0f2bec\r\n",
+    plt.close('all')
+
     corr = df.corr()
     # Generate a mask for the upper triangle
     mask = np.zeros_like(corr, dtype=bool)
     mask[np.triu_indices_from(mask)] = True
     # Set up the matplotlib figure
-    f, ax = plt.subplots(figsize=(10, 10))
+    f, ax = plt.subplots(figsize=(15, 15))
     # Generate a custom diverging colormap
     cmap = sns.diverging_palette(220, 11, as_cmap=True)
     # Draw the heatmap with the mask and correct aspect ratio
@@ -70,7 +59,10 @@ def corr_heat_map(df:pd.DataFrame, parameters: Dict):
     square=True, linewidths=.5, cbar_kws={"shrink": .5})
 
     image_name = parameters['image_name']
-    plt.savefig('./data/08_reporting/'+image_name)
+    
+    plt.savefig('./data/08_reporting/'+image_name, pad_inches=0.5)
+    fig.clear()
+    plt.close('all')
     return None
 
 
