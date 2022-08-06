@@ -11,3 +11,10 @@ pytest-cov~=3.0
 pytest-mock>=1.7.1, <2.0
 pytest~=6.2
 kedro[pandas]
+seaborn
+xgboost
+scikit-learn
+matplotlib
+graphviz
+requests
+aiohttp

@@ -11,18 +11,18 @@ from .nodes import preprocess_mushrooms, normalize_data, mushrooms_raw, document
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline(
         [
-#    node(
-#                func=documentation,
-#                inputs="data_context_raw",
-#                outputs="data_context_md",
-#                name="documentation_cleanup",
-#    ),
-#    node(
-#                func=mushrooms_raw,
-#                inputs="mushrooms",
-#                outputs="raw_mushrooms",
-#                name="dump_raw_mushrooms_node",
-#   ),
+   node(
+               func=documentation,
+               inputs="data_context_raw",
+               outputs="data_context_md",
+               name="documentation_cleanup",
+   ),
+   node(
+               func=mushrooms_raw,
+               inputs="mushrooms",
+               outputs="raw_mushrooms",
+               name="dump_raw_mushrooms_node",
+  ),
     node(
                 func=preprocess_mushrooms,
                 inputs="raw_mushrooms",

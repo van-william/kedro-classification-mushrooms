@@ -25,9 +25,11 @@ def preprocess_mushrooms(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         Preprocessed data stored as csv file (removes missing values)
     """
-    #stalk-root has missing values
-    df = df[df['stalk-root'] != '?']
-
+    # stalk-root has missing values
+    # Either remove the ? or remove the column entirely
+    # df = df[df['stalk-root'] != '?']
+    df = df.drop(columns='stalk-root')
+    
     return df
 
 

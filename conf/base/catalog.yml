@@ -84,3 +84,26 @@ data_context_raw:
 data_context_md:
   type: text.TextDataSet
   filepath: data/01_raw/documentation_md.md
+
+classifier_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/rand_forest_classifier.pickle
+  backend: pickle
+
+simple_classifier_model:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/dec_tree_classifier.pickle
+  backend: pickle
+
+feature_importance:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/feature_importance.csv
+
+base_feature_importance:
+  type: pandas.CSVDataSet
+  filepath: data/04_feature/base_feature_importance.csv
+
+
+summary_results:
+  type: pandas.CSVDataSet
+  filepath: data/08_reporting/summary_results.csv

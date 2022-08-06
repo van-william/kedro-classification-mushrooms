@@ -1,0 +1,19 @@
+# This is a boilerplate parameters config generated for pipeline 'exploratory_data_analysis'
+# using Kedro 0.18.2.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://kedro.readthedocs.io/en/0.18.2/kedro_project_setup/configuration.html#parameters
+
+
+
+pca_analysis:
+  image_name: pca_analysis.png
+  n_components: 2
+
+
+initial_feature_importance:
+  test_size: 0.2
+
+
+corr_heat_map:
+  image_name: correlation_heatmap.png
