@@ -19,7 +19,7 @@ def register_pipelines() -> Dict[str, Pipeline]:
     exploratory_data_analysis = eda.create_pipeline()
 
     return {
-        "__default__": data_processing_pipeline,
+        "__default__": data_processing_pipeline + exploratory_data_analysis + data_science_pipeline,
         "dp": data_processing_pipeline,
         "ds": data_science_pipeline,
         "eda": exploratory_data_analysis

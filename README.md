@@ -25,6 +25,10 @@ pip install -r src/requirements.txt
 ```
 3. Run pipelines in command line:
 ```
+kedro run
+```
+NOTE: the above command runs the default pipeline(s); in this case, it runs data processing then exploratory data analysis then data science. All three pipelines can be run individually with the below commands:
+``` 
 kedro run --pipeline dp
 kedro run --pipeline eda
 kedro run --pipeline ds
