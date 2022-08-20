@@ -2,7 +2,8 @@
 
 ## Overview and Purpose
 
-This project started as an introductory exploration into Kedro
+This project started as an introductory exploration into Kedro.
+
 More bluntly put, it started as a search to better organize machine learning pipelines
 
 ## Dataset Context
